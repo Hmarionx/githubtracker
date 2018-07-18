@@ -1,7 +1,7 @@
 package fr.wildcodeschool.githubtracker.model;
 
 public class Githuber {
-
+    // getter et setter pour les githubers (pojo)
     //name, email, login, id et avatarUrl
 
 
