@@ -9,7 +9,8 @@ public class Githuber {
     private String name;
     private String email;
     private String login;
-    private String avatarUrl;
+    private String avata_url;
+
 
     public Githuber() {
 
@@ -47,19 +48,19 @@ public class Githuber {
         this.login = login;
     }
 
-    public String getAvatarUrl() {
-        return avatarUrl;
+    public String getAvatar_url() {
+        return avata_url;
     }
 
-    public void setAvatarUrl(String avatarUrl) {
-        this.avatarUrl = avatarUrl;
+    public void setAvatar_url(String avatar_url) {
+        this.avata_url = avatar_url;
     }
 
-    public Githuber(int id, String name, String email, String login, String avatarUrl) {
+    public Githuber(int id, String name, String email, String login, String avatar_url) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.login = login;
-        this.avatarUrl = avatarUrl;
+        this.avata_url = avatar_url;
     }
 }

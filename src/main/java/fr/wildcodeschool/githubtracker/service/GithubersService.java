@@ -7,12 +7,13 @@ import javax.inject.Inject;
 import java.io.Serializable;
 import java.util.List;
 
-public class GithubersService implements Serializable {
+public class GithubersService {
 
-    @Inject
+    public GithuberDAO dao;
 
-    private GithuberDAO dao;
-
+    public GithubersService(GithuberDAO dao) {
+        this.dao = dao;
+    }
 
     public List <Githuber> getAllGithubers() {
 
