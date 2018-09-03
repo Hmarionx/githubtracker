@@ -25,5 +25,10 @@ public class DumbGithuberDAO implements GithuberDAO {
         return allgithubers;
 
     }
+
+    @Override
+    public void saveGithuber(Githuber githuber) {
+
+    }
 }
 

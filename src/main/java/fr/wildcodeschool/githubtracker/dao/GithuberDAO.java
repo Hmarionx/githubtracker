@@ -9,4 +9,6 @@ import java.util.List;
 public interface GithuberDAO extends Serializable {
 
     List <Githuber> getGithubers();
+
+    void saveGithuber(Githuber githuber);
 }
