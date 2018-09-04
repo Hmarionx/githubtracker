@@ -17,28 +17,22 @@ import java.util.Map;
 @ApplicationScoped
 public class MemoryGithuberDAO implements GithuberDAO, Serializable {
 
-    @Inject
-    private ObjectMapper om;
+    //@Inject
+    //private ObjectMapper om;
 
-    HashMap <String, Githuber> githubers = new HashMap <String, Githuber>();
-
+    private HashMap <String, Githuber> githubers = new HashMap <>();
 
     public List <Githuber> getGithubers() {
-        List <Githuber> githubersList = new LinkedList <Githuber>();
+        List <Githuber> githubersList = new LinkedList <>();
         if (githubers != null && githubers.size() > 0) {
             for (Map.Entry <String, Githuber> entry : githubers.entrySet()) {
-                String key = entry.getKey();
                 Githuber g = entry.getValue();
-
                 githubersList.add(g);
             }
         }
-
         return githubersList;
 
     }
-
-    ;
 
     public void saveGithuber(Githuber githuber) {
         if (githuber != null) {
@@ -46,16 +40,13 @@ public class MemoryGithuberDAO implements GithuberDAO, Serializable {
         }
     }
 
-    /*
     @PostConstruct
     public void Githuber() {
         List <Githuber> ghList;
-        ghList = DumbGithuberDAO.getGithubers();
-        for (Githuber githuber : ghList) {
-            saveGithuber(GithubUtils.parseGithuber(githuber.getLogin()));
-
-        }
+        DumbGithuberDAO dao= new DumbGithuberDAO();
+        GithubUtils ghu = new GithubUtils();
+        ghList = dao.getGithubers();
+        for (Githuber githubers : ghList) saveGithuber(ghu.parseGithuber(githubers.getLogin()));
     }
-    */
 }
 
