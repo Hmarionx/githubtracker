@@ -1,8 +1,10 @@
 package fr.wildcodeschool.githubtracker.dao;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import fr.wildcodeschool.githubtracker.controller.GithubUtils;
 import fr.wildcodeschool.githubtracker.model.Githuber;
 
+import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import java.io.Serializable;
@@ -46,14 +48,14 @@ public class MemoryGithuberDAO implements GithuberDAO, Serializable {
 
     /*
     @PostConstruct
-    public void recupDumbGithuber() {
-        List <Githuber> ghList = DumbGithuberDAO.getGithubers();
+    public void Githuber() {
+        List <Githuber> ghList;
+        ghList = DumbGithuberDAO.getGithubers();
         for (Githuber githuber : ghList) {
             saveGithuber(GithubUtils.parseGithuber(githuber.getLogin()));
 
         }
     }
     */
-
 }
 

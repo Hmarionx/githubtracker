@@ -14,10 +14,9 @@
 </head>
 <body>
 <form action="${pageContext.request.contextPath}/track" enctype="application/x-www-form-urlencoded" method="post">
-    <label>login:</label>
+    <label>Login Github à rechercher:</label>
     <input name="login" type="text">
-    <br/>
-    <button type="submit">ok</button>
+    <button type="submit">Trouve-moi ce Githuber !</button>
 </form>
 </body>
 </html>

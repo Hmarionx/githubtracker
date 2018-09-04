@@ -17,12 +17,13 @@
 <h1>Liste des githubers</h1>
 
 <div class="container-fluid">
-
     <div class="row">
         <div class="col-sm-4">
             <c:forEach items="${githubers}" var="githuber">
                 <div class="thumbnail">
                     <div class="caption">
+                        <div><img src="<c:out value="${githuber.avatar_url}" />" alt="github avatar"
+                                  style="width: 100px;height: 100px;"></div>
                         <h2><c:out value="${githuber.name}"/></h2>
                         <h4>ID : <c:out value="${githuber.id}"/></h4>
                         <h4>Email : <c:out value="${githuber.email}"/></h4>
