@@ -22,9 +22,6 @@
         <div class="col-sm-4">
             <c:forEach items="${githubers}" var="githuber">
                 <div class="thumbnail">
-                    <div><img src="<c:out value="${githuber.avatar_url}/${githuber.login}" />" alt="github avatar"
-                              style="width: 100px;height: 100px;"></div>
-                    <div class="caption">
                         <h2><c:out value="${githuber.name}"/></h2>
                         <h4>ID : <c:out value="${githuber.id}"/></h4>
                         <h4>Email : <c:out value="${githuber.email}"/></h4>

@@ -1,32 +1,31 @@
 package fr.wildcodeschool.githubtracker.controller;
 
-import fr.wildcodeschool.githubtracker.dao.DumbGithuberDAO;
-import fr.wildcodeschool.githubtracker.dao.GithuberDAO;
+import fr.wildcodeschool.githubtracker.model.Githuber;
 import fr.wildcodeschool.githubtracker.service.GithubersService;
 
 import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.Arrays;
+import java.util.List;
+
 
 @WebServlet(name = "GithubersServlet", urlPatterns = {"/githubers"})
+public class GithubersServlet extends HttpServlet {
 
-public class GithubersServlet extends javax.servlet.http.HttpServlet {
-    @Inject
-    private GithuberDAO dao;
     @Inject
     private GithubersService ghs;
-    private String login = "ihma";
+
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        request.setAttribute("githubers", Arrays.asList(ghs.getGithuber(login)));
-        //request.setAttribute("githubers", ghs.getAllGithubers());
+        List<Githuber> githubers = ghs.getGithubers();
 
+        request.setAttribute("githubers", githubers);
         request.getRequestDispatcher("/WEB-INF/githubers.jsp").forward(request, response);
     }
-}
 
+}
