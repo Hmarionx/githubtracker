@@ -1,34 +1,34 @@
 package fr.wildcodeschool.githubtracker.service;
 
 import fr.wildcodeschool.githubtracker.dao.GithuberDAO;
+import fr.wildcodeschool.githubtracker.dao.MemoryGithuberDAO;
 import fr.wildcodeschool.githubtracker.model.Githuber;
 
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
-import java.io.Serializable;
 import java.util.List;
 
 @Dependent
-public class GithubersService implements Serializable {
+public class GithubersService {
+    MemoryGithuberDAO dao;
+    //@Inject
+    //GithuberDAO dao;
 
     @Inject
-    public GithuberDAO dao;
+    public GithubersService(MemoryGithuberDAO dao) {
+        this.dao = dao;
+    }
 
-    public List <Githuber> getAllGithubers() {
-
+    public List<Githuber> getAllGithubers() {
         return dao.getGithubers();
     }
 
-    // Méthode pour extraire un seul
     public Githuber getGithuber(String login) {
-
         return getAllGithubers().stream().filter(x -> login.equals(x.getLogin())).findFirst().orElse(null);
-
     }
 
-    public void track(String login) {
-
-        //TODDO
+    public void track(String login){
+        //TODO
     }
 
 }
