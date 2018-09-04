@@ -1,10 +1,8 @@
 package fr.wildcodeschool.githubtracker.dao;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import fr.wildcodeschool.githubtracker.controller.GithubUtils;
 import fr.wildcodeschool.githubtracker.model.Githuber;
 
-import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import java.io.Serializable;
@@ -20,13 +18,13 @@ public class MemoryGithuberDAO implements GithuberDAO, Serializable {
     @Inject
     private ObjectMapper om;
 
-    HashMap<String, Githuber> githubers = new HashMap<String, Githuber>();
+    HashMap <String, Githuber> githubers = new HashMap <String, Githuber>();
 
 
-        public List<Githuber> getGithubers(){
-        List<Githuber> githubersList = new LinkedList<Githuber>();
-        if(githubers !=null && githubers.size() > 0) {
-            for (Map.Entry<String, Githuber> entry : githubers.entrySet()) {
+    public List <Githuber> getGithubers() {
+        List <Githuber> githubersList = new LinkedList <Githuber>();
+        if (githubers != null && githubers.size() > 0) {
+            for (Map.Entry <String, Githuber> entry : githubers.entrySet()) {
                 String key = entry.getKey();
                 Githuber g = entry.getValue();
 
@@ -36,7 +34,9 @@ public class MemoryGithuberDAO implements GithuberDAO, Serializable {
 
         return githubersList;
 
-    };
+    }
+
+    ;
 
     public void saveGithuber(Githuber githuber) {
         if (githuber != null) {

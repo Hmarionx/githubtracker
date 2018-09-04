@@ -15,14 +15,14 @@ public class GithubUtils {
     @Inject
     private ObjectMapper om;
 
-    public Githuber parseGithuber(String login){
+    public Githuber parseGithuber(String login) {
 
         String userUrl = GITHUB_URL + login;
         Githuber githuber = null;
-        try(InputStream is = new URL(userUrl).openStream()){
+        try (InputStream is = new URL(userUrl).openStream()) {
             githuber = om.readValue(is, Githuber.class);
 
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
 

@@ -22,6 +22,7 @@
         <div class="col-sm-4">
             <c:forEach items="${githubers}" var="githuber">
                 <div class="thumbnail">
+                    <div class="caption">
                         <h2><c:out value="${githuber.name}"/></h2>
                         <h4>ID : <c:out value="${githuber.id}"/></h4>
                         <h4>Email : <c:out value="${githuber.email}"/></h4>
