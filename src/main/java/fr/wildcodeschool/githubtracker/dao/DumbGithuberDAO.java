@@ -12,16 +12,16 @@ import java.util.List;
 public class DumbGithuberDAO implements GithuberDAO, Serializable {
 
     public List <Githuber> getGithubers() {
-        List <Githuber> allgithubers = new ArrayList <Githuber>(5);
-        allgithubers.add(new Githuber(1, "Hervé", "herve.marion@pole-emploi.fr", "Hmarionx","https://api.adorable.io/avatars/100"));
-        allgithubers.add(new Githuber(2, "Julien C", "julien.cordenod@pole-emploi.fr", "djul60", "https://api.adorable.io/avatars/100"));
-        allgithubers.add(new Githuber(3, "Stéphane", "stephane.couedelo@pole-emploi.fr ", "isco", "https://api.adorable.io/avatars/100"));
-        allgithubers.add(new Githuber(4, "Jean-François", "jfrancois.manrique@pole-emploi.fr ", "jfm17", "https://api.adorable.io/avatars/100"));
-        allgithubers.add(new Githuber(5, "Julien R", "julien.royer@wildcodeschool.fr", "julienroyer", "https://api.adorable.io/avatars/100"));
+        List <Githuber> githuber = new ArrayList <>(5);
+        githuber.add(new Githuber(1, "Hervé", "herve.marion@pole-emploi.fr", "Hmarionx","https://api.adorable.io/avatars/100"));
+        githuber.add(new Githuber(2, "Julien C", "julien.cordenod@pole-emploi.fr", "djul69", "https://api.adorable.io/avatars/100"));
+        githuber.add(new Githuber(3, "Stéphane", "stephane.couedelo@pole-emploi.fr ", "stephwildcode", "https://api.adorable.io/avatars/100"));
+        githuber.add(new Githuber(4, "Jean-François", "jfrancois.manrique@pole-emploi.fr ", "jfm17", "https://api.adorable.io/avatars/100"));
+        githuber.add(new Githuber(5, "Julien R", "julien.royer@wildcodeschool.fr", "julienroyer", "https://api.adorable.io/avatars/100"));
 
-        Collections.unmodifiableList(allgithubers);
+        Collections.unmodifiableList(githuber);
 
-        return allgithubers;
+        return githuber;
 
     }
 
@@ -29,4 +29,5 @@ public class DumbGithuberDAO implements GithuberDAO, Serializable {
     public void saveGithuber(Githuber githuber) throws UnsupportedOperationException {
         throw new UnsupportedOperationException();
     }
+
 }

@@ -39,12 +39,12 @@ public class MemoryGithuberDAO implements GithuberDAO, Serializable {
             githubers.put(githuber.getLogin(), githuber);
         }
     }
-
+    @Inject
+    GithubUtils ghu;
     @PostConstruct
     public void Githuber() {
         List <Githuber> ghList;
         DumbGithuberDAO dao= new DumbGithuberDAO();
-        GithubUtils ghu = new GithubUtils();
         ghList = dao.getGithubers();
         for (Githuber githubers : ghList) saveGithuber(ghu.parseGithuber(githubers.getLogin()));
     }
