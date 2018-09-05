@@ -7,7 +7,6 @@ import fr.wildcodeschool.githubtracker.model.Githuber;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
-import java.io.Serializable;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -15,7 +14,7 @@ import java.util.Map;
 
 @InMemory
 @ApplicationScoped
-public class MemoryGithuberDAO implements GithuberDAO, Serializable {
+public class MemoryGithuberDAO implements GithuberDAO {
 
     //@Inject
     //private ObjectMapper om;

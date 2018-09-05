@@ -2,14 +2,13 @@ package fr.wildcodeschool.githubtracker.dao;
 
 import fr.wildcodeschool.githubtracker.model.Githuber;
 
-import javax.enterprise.context.SessionScoped;
-import java.io.Serializable;
+import javax.enterprise.context.ApplicationScoped;;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-@SessionScoped
-public class DumbGithuberDAO implements GithuberDAO, Serializable {
+@ApplicationScoped
+public class DumbGithuberDAO implements GithuberDAO {
 
     public List <Githuber> getGithubers() {
         List <Githuber> githuber = new ArrayList <>(5);

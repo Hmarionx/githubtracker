@@ -6,11 +6,10 @@ import fr.wildcodeschool.githubtracker.model.Githuber;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
-import java.io.Serializable;
 import java.util.List;
 
 @ApplicationScoped
-public class GithubersService implements Serializable {
+public class GithubersService {
 
     @Inject
     @InMemory
