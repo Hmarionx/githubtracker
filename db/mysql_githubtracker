@@ -1,0 +1,16 @@
+#!/bin/bash
+case "$1" in
+	export)
+	# export db and table 
+	mysqldump -u root -p --no-data --databases  githubtracker > githubtracker.sql
+	;;
+	
+	import)
+	# import  db and table
+	mysql -u root -p  < githubtracker.sql
+	;;
+*)
+    echo "Pour importer : mysql_githubtracker import"
+    echo "Pour exporter : mysql_githubtracker export"
+    exit 1
+esac
