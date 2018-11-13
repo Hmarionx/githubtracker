@@ -42,6 +42,15 @@ CREATE TABLE `githuber` (
   `avatar_url` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+CREATE USER 'wilder' IDENTIFIED BY 'wilder';
+GRANT ALL ON `githubtracker`.* TO 'wilder';
+GRANT SELECT ON TABLE `githubtracker`.* TO 'wilder';
+GRANT SELECT, INSERT, TRIGGER ON TABLE `githubtracker`.* TO 'wilder';
+GRANT SELECT, INSERT, TRIGGER, UPDATE, DELETE ON TABLE `githubtracker`.* TO 'wilder';
+GRANT EXECUTE ON ROUTINE `githubtracker`.* TO 'wilder';
+
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

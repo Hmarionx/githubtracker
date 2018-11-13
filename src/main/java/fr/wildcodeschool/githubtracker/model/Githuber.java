@@ -5,11 +5,42 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Githuber {
 
-    int id;
-    String name;
-    String email;
-    String login;
-    String avatar_url;
+    public int id;
+    public String name;
+    public String email;
+    public String login;
+    public String avatar_url;
+    public String bio;
+    public String location;
+    public String url;
+
+    public Githuber() {
+
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public String getBio() {
+        return bio;
+    }
+
+    public void setBio(String bio) {
+        this.bio = bio;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
 
     public int getId() {
         return id;
@@ -52,11 +83,15 @@ public class Githuber {
     }
 
     @JsonCreator
-    public Githuber(@JsonProperty("id") int id, @JsonProperty("name") String name, @JsonProperty("email") String email, @JsonProperty("login") String login, @JsonProperty("avatar_url") String avatar_url) {
+    public Githuber(@JsonProperty("id") int id, @JsonProperty("name") String name, @JsonProperty("email") String email, @JsonProperty("login") String login, @JsonProperty("avatar_url") String avatar_url, @JsonProperty("location") String location, @JsonProperty("bio") String bio, @JsonProperty("url") String url) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.login = login;
+        this.bio = bio;
+        this.location = location;
+        this.url = url;
         this.avatar_url = avatar_url;
     }
+
 }

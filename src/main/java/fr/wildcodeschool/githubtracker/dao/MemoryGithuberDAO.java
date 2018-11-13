@@ -1,6 +1,5 @@
 package fr.wildcodeschool.githubtracker.dao;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import fr.wildcodeschool.githubtracker.controller.GithubUtils;
 import fr.wildcodeschool.githubtracker.model.Githuber;
 
@@ -38,6 +37,12 @@ public class MemoryGithuberDAO implements GithuberDAO {
             githubers.put(githuber.getLogin(), githuber);
         }
     }
+
+    @Override
+    public void deleteGithuber(String login) {
+
+    }
+
     @Inject
     GithubUtils ghu;
     @PostConstruct
