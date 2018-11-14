@@ -1,7 +1,5 @@
 package fr.wildcodeschool.githubtracker.controller;
 
-import fr.wildcodeschool.githubtracker.dao.GithuberDAO;
-import fr.wildcodeschool.githubtracker.dao.InJDBC;
 import fr.wildcodeschool.githubtracker.service.GithubersService;
 
 import javax.inject.Inject;
@@ -17,30 +15,18 @@ import java.sql.SQLException;
 public class TrackerServlet extends HttpServlet {
 
     @Inject
-    @InJDBC
-    private GithuberDAO dao;
-
-    @Inject
-    GithubersService ghu;
+    GithubersService ghs;
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         String login = request.getParameter("login");
         try {
-            ghu.trackGithuber(login);
+            ghs.trackGithuber(login);
         } catch (SQLException e) {
             e.printStackTrace();
         }
         response.sendRedirect(request.getContextPath() + "/githubers");
 
-
-//        String login = request.getParameter("login");
-//        if (ghu.parseGithuber(login) != null) {
-//            dao.saveGithuber(ghu.parseGithuber(login));
-//            response.sendRedirect(request.getContextPath() + "/githubers");
-//        } else {
-//            request.getRequestDispatcher("/WEB-INF/track.jsp").forward(request, response);
-//        }
     }
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
