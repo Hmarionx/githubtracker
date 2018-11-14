@@ -35,4 +35,9 @@ public class DumbGithuberDAO implements GithuberDAO {
 
     }
 
+    @Override
+    public void addGithuber(String login) {
+
+    }
+
 }

@@ -1,10 +1,13 @@
 package fr.wildcodeschool.githubtracker.dao;
 
+import fr.wildcodeschool.githubtracker.controller.GithubUtils;
 import fr.wildcodeschool.githubtracker.model.Githuber;
+import fr.wildcodeschool.githubtracker.service.GithubersService;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Inject;
 import javax.sql.DataSource;
 import java.sql.*;
 import java.util.LinkedList;
@@ -81,6 +84,12 @@ public class JDBCGithuberDAO implements GithuberDAO {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    @Inject
+    GithubUtils ghu;
+    public void addGithuber(String login) {
+          saveGithuber(ghu.parseGithuber(login));
     }
 
 }

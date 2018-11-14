@@ -26,4 +26,8 @@ public class GithubersService {
         dao.deleteGithuber(login);
     }
 
+    public void trackGithuber(String login) throws SQLException {
+        dao.addGithuber(login);
+    }
+
 }

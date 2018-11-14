@@ -43,6 +43,12 @@ public class MemoryGithuberDAO implements GithuberDAO {
 
     }
 
+    @Override
+    public void addGithuber(String login) {
+
+    }
+
+
     @Inject
     GithubUtils ghu;
     @PostConstruct
