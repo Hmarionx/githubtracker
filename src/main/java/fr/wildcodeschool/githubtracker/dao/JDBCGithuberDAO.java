@@ -27,24 +27,24 @@ public class JDBCGithuberDAO implements GithuberDAO {
         }
     }
 
-    Connection conn = null;
-    Statement stmt = null;
+    private Connection conn = null;
+    private Statement stmt = null;
 
-    public List<Githuber> getGithubers() throws SQLException {
+    public List <Githuber> getGithubers() {
         List<Githuber> githubersList = new LinkedList<>();
 
         try {
 
             stmt = conn.createStatement();
-            ResultSet resultat = null;
-            resultat = stmt.executeQuery("SELECT DISTINCT * FROM githuber");
+            ResultSet resultat;
+            resultat = stmt.executeQuery("SELECT DISTINCT github_id,name,login,html_url,email,bio,location,avatar_url FROM githuber");
 
             while (resultat.next()) {
                 Githuber githuber = new Githuber();
                 githuber.setId(resultat.getInt("github_id"));
                 githuber.setName(resultat.getString("name"));
                 githuber.setLogin(resultat.getString("login"));
-                githuber.setUrl(resultat.getString("url"));
+                githuber.setHtml_url(resultat.getString("html_url"));
                 githuber.setEmail(resultat.getString("email"));
                 githuber.setBio(resultat.getString("bio"));
                 githuber.setLocation(resultat.getString("location"));
@@ -61,11 +61,11 @@ public class JDBCGithuberDAO implements GithuberDAO {
 
     public void saveGithuber(Githuber githuber) {
 
-        String statement = "INSERT INTO githuber(github_id,name,login,url,email,bio,location,avatar_url) VALUES('"
-                + githuber.getId() + "','" + githuber.getName() + "', '" + githuber.getLogin() + "','" + githuber.getUrl() +
+        String statement = "INSERT INTO githuber(github_id,name,login,html_url,email,bio,location,avatar_url) VALUES('"
+                + githuber.getId() + "','" + githuber.getName() + "', '" + githuber.getLogin() + "','" + githuber.getHtml_url() +
                 "','" + githuber.getEmail() + "','" + githuber.getBio() + "','" + githuber.getLocation() + "','" + githuber.getAvatar_url() + "')";
 
-        PreparedStatement insertStatement = null;
+        PreparedStatement insertStatement;
         try {
             insertStatement = conn.prepareStatement(statement);
             insertStatement.executeUpdate();

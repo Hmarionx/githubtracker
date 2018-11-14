@@ -31,14 +31,14 @@ DROP TABLE IF EXISTS `githuber`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `githuber` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `github_id` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `name` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `login` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `url` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `email` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `bio` text COLLATE utf8_unicode_ci,
-  `location` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `id`         bigint(20) NOT NULL                  AUTO_INCREMENT,
+  `github_id`  varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `name`       varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `login`      varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `html_url`   varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `email`      varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `bio`        text COLLATE utf8_unicode_ci,
+  `location`   varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `avatar_url` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -49,7 +49,6 @@ GRANT ALL ON `githubtracker`.* TO 'wilder';
 GRANT SELECT ON TABLE `githubtracker`.* TO 'wilder';
 GRANT SELECT, INSERT, TRIGGER ON TABLE `githubtracker`.* TO 'wilder';
 GRANT SELECT, INSERT, TRIGGER, UPDATE, DELETE ON TABLE `githubtracker`.* TO 'wilder';
-GRANT EXECUTE ON ROUTINE `githubtracker`.* TO 'wilder';
 
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
