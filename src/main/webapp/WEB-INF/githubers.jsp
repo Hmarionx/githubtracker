@@ -25,7 +25,7 @@
                         <div><img src="<c:out value="${githuber.avatar_url}" />" alt="github avatar"
                                   style="width: 200px;height: 200px;"></div>
                         <h2><c:out value="${githuber.name}"/></h2>
-                        <h4>ID : <c:out value="${githuber.id}"/></h4>
+                        <h4>ID : <c:out value="${githuber.github_id}"/></h4>
                         <h4>Email : <c:out value="${githuber.email}"/></h4>
                         <h4>Login : <c:out value="${githuber.login}"/></h4>
                         <h4>Bio : <c:out value="${githuber.bio}"/></h4>
