@@ -3,51 +3,50 @@ package fr.wildcodeschool.githubtracker.model;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "githuber")
 public class Githuber {
 
-    private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    @Column(name = "github_id")
+    private int github_id;
+    @Column(name = "name")
     private String name;
+    @Column(name = "email")
     private String email;
+    @Column(name = "login")
     private String login;
-    private String avatar_url;
+    @Column(name = "bio")
     private String bio;
+    @Column(name = "location")
     private String location;
+    @Column(name = "html_url")
     private String html_url;
+    @Column(name = "avatar_url")
+    private String avatar_url;
 
     public Githuber() {
 
     }
 
-    public String getHtml_url() {
-        return html_url;
-    }
-
-    public void setHtml_url(String html_url) {
-        this.html_url = html_url;
-    }
-
-    public String getBio() {
-        return bio;
-    }
-
-    public void setBio(String bio) {
-        this.bio = bio;
-    }
-
-    public String getLocation() {
-        return location;
-    }
-
-    public void setLocation(String location) {
-        this.location = location;
-    }
-
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
+    }
+
+    public int getGithub_id() {
+        return github_id;
+    }
+
+    public void setGithub_id(int github_id) {
+        this.github_id = github_id;
     }
 
     public String getName() {
@@ -74,6 +73,30 @@ public class Githuber {
         this.login = login;
     }
 
+    public String getBio() {
+        return bio;
+    }
+
+    public void setBio(String bio) {
+        this.bio = bio;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public String getHtml_url() {
+        return html_url;
+    }
+
+    public void setHtml_url(String html_url) {
+        this.html_url = html_url;
+    }
+
     public String getAvatar_url() {
         return avatar_url;
     }
@@ -83,8 +106,8 @@ public class Githuber {
     }
 
     @JsonCreator
-    public Githuber(@JsonProperty("id") int id, @JsonProperty("name") String name, @JsonProperty("email") String email, @JsonProperty("login") String login, @JsonProperty("avatar_url") String avatar_url, @JsonProperty("location") String location, @JsonProperty("bio") String bio, @JsonProperty("html_url") String html_url) {
-        this.id = id;
+    public Githuber(@JsonProperty("id") int github_id, @JsonProperty("name") String name, @JsonProperty("email") String email, @JsonProperty("login") String login, @JsonProperty("avatar_url") String avatar_url, @JsonProperty("location") String location, @JsonProperty("bio") String bio, @JsonProperty("html_url") String html_url) {
+        this.github_id = github_id;
         this.name = name;
         this.email = email;
         this.login = login;

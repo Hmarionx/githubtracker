@@ -46,9 +46,9 @@ CREATE TABLE `githuber` (
 
 CREATE USER 'wilder' IDENTIFIED BY 'wilder';
 GRANT ALL ON `githubtracker`.* TO 'wilder';
-GRANT SELECT ON TABLE `githubtracker`.* TO 'wilder';
-GRANT SELECT, INSERT, TRIGGER ON TABLE `githubtracker`.* TO 'wilder';
-GRANT SELECT, INSERT, TRIGGER, UPDATE, DELETE ON TABLE `githubtracker`.* TO 'wilder';
+GRANT SELECT ON TABLE `githuber`.* TO 'wilder';
+GRANT SELECT, INSERT, TRIGGER ON TABLE `githuber`.* TO 'wilder';
+GRANT SELECT, INSERT, TRIGGER, UPDATE, DELETE ON TABLE `githuber`.* TO 'wilder';
 
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

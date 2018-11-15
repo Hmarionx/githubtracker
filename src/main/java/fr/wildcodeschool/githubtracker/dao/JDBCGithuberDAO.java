@@ -16,7 +16,7 @@ import java.util.List;
 
 public class JDBCGithuberDAO implements GithuberDAO {
 
-    @Resource(lookup = "jdbc/githubtrackerPool")
+    @Resource(lookup = "jdbc/githubtracker")
     private DataSource datasource;
 
     public List <Githuber> getGithubers() {
@@ -29,7 +29,7 @@ public class JDBCGithuberDAO implements GithuberDAO {
 
             while (resultat.next()) {
                 Githuber githuber = new Githuber();
-                githuber.setId(resultat.getInt("github_id"));
+                githuber.setGithub_id(resultat.getInt("github_id"));
                 githuber.setName(resultat.getString("name"));
                 githuber.setLogin(resultat.getString("login"));
                 githuber.setHtml_url(resultat.getString("html_url"));
@@ -51,7 +51,7 @@ public class JDBCGithuberDAO implements GithuberDAO {
 
         try (Connection conn = datasource.getConnection()) {
             String statement = "INSERT INTO githuber(github_id,name,login,html_url,email,bio,location,avatar_url) VALUES('"
-                    + githuber.getId() + "','" + githuber.getName() + "', '" + githuber.getLogin() + "','" + githuber.getHtml_url() +
+                    + githuber.getGithub_id() + "','" + githuber.getName() + "', '" + githuber.getLogin() + "','" + githuber.getHtml_url() +
                     "','" + githuber.getEmail() + "','" + githuber.getBio() + "','" + githuber.getLocation() + "','" + githuber.getAvatar_url() + "')";
 
             PreparedStatement insertStatement;
