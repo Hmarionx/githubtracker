@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.sql.SQLException;
 
 @WebServlet(name = "UntrackServlet", urlPatterns = {"/untrack"})
 public class UntrackServlet extends HttpServlet {
@@ -17,14 +16,12 @@ public class UntrackServlet extends HttpServlet {
     @Inject
     GithubersService ghu;
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         String loginUntrack = request.getParameter("login");
-        try {
-            ghu.untrackGithuber(loginUntrack);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+
+        ghu.untrackGithuber(loginUntrack);
+
         response.sendRedirect(request.getContextPath() + "/githubers");
     }
 

@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.sql.SQLException;
 
 @WebServlet(name = "TrackerServlet", urlPatterns = {"/track"})
 public class TrackerServlet extends HttpServlet {
@@ -20,11 +19,9 @@ public class TrackerServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         String login = request.getParameter("login");
-        try {
-            ghs.trackGithuber(login);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+
+        ghs.trackGithuber(login);
+
         response.sendRedirect(request.getContextPath() + "/githubers");
 
     }
