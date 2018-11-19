@@ -23,7 +23,7 @@
                 <div class="thumbnail">
                     <div class="caption">
                         <div><img src="<c:out value="${githuber.avatar_url}" />" alt="github avatar"
-                                  style="width: 200px;height: 200px;"></div>
+                                  style="width: 220px;height: 220px;"></div>
                         <h2><c:out value="${githuber.name}"/></h2>
                         <h4>ID : <c:out value="${githuber.github_id}"/></h4>
                         <h4>Email : <c:out value="${githuber.email}"/></h4>
