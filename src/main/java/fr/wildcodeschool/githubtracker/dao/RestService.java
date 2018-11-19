@@ -1,6 +1,7 @@
 package fr.wildcodeschool.githubtracker.dao;
 
 
+import fr.wildcodeschool.githubtracker.controller.jwt.JWTTokenNeeded;
 import fr.wildcodeschool.githubtracker.model.Githuber;
 import fr.wildcodeschool.githubtracker.service.GithubersService;
 
@@ -13,11 +14,9 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 import java.sql.SQLException;
 import java.util.List;
-import java.util.Optional;
 
 @Path("/")
 @Dependent
-
 
 public class RestService {
 
@@ -27,15 +26,15 @@ public class RestService {
     @GET
     @Path("/test")
     @Produces("text/plain")
-
-    public String Test(@Context UriInfo uriInfo) {
+    public String test(@Context UriInfo uriInfo) {
         return uriInfo.getBaseUriBuilder().path("githuber").build().toString();
     }
 
     @GET
+    @JWTTokenNeeded
     @Path("/githubers")
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response List() throws SQLException {
+    public Response list(@Context UriInfo uriInfo) throws SQLException {
         List <Githuber> githuberList = ghs.getGithubers();
         return Response
                 .ok(githuberList)
@@ -43,9 +42,10 @@ public class RestService {
 
     }
     @POST
+    @JWTTokenNeeded
     @Path("/githuber/{login}")
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response Track(@Context UriInfo uriInfo, @PathParam("login") String login) throws SQLException {
+    public Response track(@Context UriInfo uriInfo, @PathParam("login") String login) throws SQLException {
         Githuber githuber = ghs.getGithubers().stream().filter(extractGithuber -> extractGithuber.getLogin().equals(login)).findFirst().orElse(null);
         if (githuber == null) {
             ghs.trackGithuber(login);
@@ -56,9 +56,10 @@ public class RestService {
     }
 
     @DELETE
+    @JWTTokenNeeded
     @Path("/githuber/{login}")
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response Untrack (@PathParam("login") String login) throws SQLException {
+    public Response untrack(@PathParam("login") String login) throws SQLException {
         Githuber githuber = ghs.getGithubers().stream().filter(extractGithuber -> extractGithuber.getLogin().equals(login)).findFirst().orElse(null);
         if (githuber == null) {
             return Response.created(null).status(404).entity("Githuber inexistant").build();
