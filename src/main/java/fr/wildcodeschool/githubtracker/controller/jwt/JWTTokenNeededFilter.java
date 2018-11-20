@@ -1,9 +1,6 @@
 package fr.wildcodeschool.githubtracker.controller.jwt;
 
 import io.jsonwebtoken.Jwts;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.slf4j.spi.LoggerFactoryBinder;
 
 import javax.annotation.Priority;
 import javax.ws.rs.NotAuthorizedException;
@@ -15,33 +12,27 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.ext.Provider;
 import java.io.IOException;
 import java.security.Key;
+import java.util.logging.Logger;
+
+;
 
 /**
  * @author Antonio Goncalves
- * http://www.antoniogoncalves.org
- * --
+ *         http://www.antoniogoncalves.org
+ *         --
  */
 @Provider
 @JWTTokenNeeded
 @Priority(Priorities.AUTHENTICATION)
 public class JWTTokenNeededFilter implements ContainerRequestFilter {
 
-    // ======================================
-    // =          Injection Points          =
-    // ======================================
-    private static Logger logger = LoggerFactory.getLogger(LoggerFactoryBinder.class);
+    //@Inject
+    //private Logger logger;
+    final private Logger logger = Logger.getLogger("logger");
 
-
-    private KeyGenerator keyGenerator = new KeyGenerator() {
-        @Override
-        public Key generateKey() {
-            return generateKey();
-        }
-    };
-
-    // ======================================
-    // =          Business methods          =
-    // ======================================
+    //@Inject
+    //private KeyGenerator keyGenerator;
+    final private SimpleKeyGenerator keyGenerator = new SimpleKeyGenerator();
 
     @Override
     public void filter(ContainerRequestContext requestContext) throws IOException {
@@ -52,7 +43,7 @@ public class JWTTokenNeededFilter implements ContainerRequestFilter {
 
         // Check if the HTTP Authorization header is present and formatted correctly
         if (authorizationHeader == null || !authorizationHeader.startsWith("Bearer ")) {
-            logger.error("#### invalid authorizationHeader : " + authorizationHeader);
+            logger.severe("#### invalid authorizationHeader : " + authorizationHeader);
             throw new NotAuthorizedException("Authorization header must be provided");
         }
 
@@ -67,7 +58,7 @@ public class JWTTokenNeededFilter implements ContainerRequestFilter {
             logger.info("#### valid token : " + token);
 
         } catch (Exception e) {
-            logger.error("#### invalid token : " + token);
+            logger.severe("#### invalid token : " + token);
             requestContext.abortWith(Response.status(Response.Status.UNAUTHORIZED).build());
         }
     }
