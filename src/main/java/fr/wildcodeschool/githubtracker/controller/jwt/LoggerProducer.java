@@ -11,10 +11,6 @@ import java.util.logging.Logger;
  */
 public class LoggerProducer {
 
-    // ======================================
-    // =              Producers             =
-    // ======================================
-
     @Produces
     public Logger produceLogger(InjectionPoint injectionPoint) {
         return Logger.getLogger(injectionPoint.getMember().getDeclaringClass().getName());

@@ -6,5 +6,6 @@
     <persistence-unit name="Githubtracker" transaction-type="JTA">
         <jta-data-source>jdbc/githubtracker</jta-data-source>
         <class>fr.wildcodeschool.githubtracker.model.Githuber</class>
+        <class>fr.wildcodeschool.githubtracker.model.Credentials</class>
     </persistence-unit>
 </persistence>
