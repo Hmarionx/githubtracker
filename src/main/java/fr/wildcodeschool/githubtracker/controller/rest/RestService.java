@@ -1,4 +1,4 @@
-package fr.wildcodeschool.githubtracker.controller.Rest;
+package fr.wildcodeschool.githubtracker.controller.rest;
 
 
 import fr.wildcodeschool.githubtracker.jwt.JWTTokenNeeded;
