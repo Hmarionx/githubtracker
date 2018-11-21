@@ -1,4 +1,4 @@
-package fr.wildcodeschool.githubtracker.controller.jwt;
+package fr.wildcodeschool.githubtracker.jwt;
 
 import io.jsonwebtoken.Jwts;
 
@@ -10,11 +10,9 @@ import javax.ws.rs.container.ContainerRequestFilter;
 import javax.ws.rs.core.HttpHeaders;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.ext.Provider;
-import java.io.IOException;
 import java.security.Key;
 import java.util.logging.Logger;
 
-;
 
 /**
  * @author Antonio Goncalves
@@ -35,7 +33,7 @@ public class JWTTokenNeededFilter implements ContainerRequestFilter {
     final private SimpleKeyGenerator keyGenerator = new SimpleKeyGenerator();
 
     @Override
-    public void filter(ContainerRequestContext requestContext) throws IOException {
+    public void filter(ContainerRequestContext requestContext) {
 
         // Get the HTTP Authorization header from the request
         String authorizationHeader = requestContext.getHeaderString(HttpHeaders.AUTHORIZATION);

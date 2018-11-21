@@ -1,4 +1,4 @@
-package fr.wildcodeschool.githubtracker.controller.jwt;
+package fr.wildcodeschool.githubtracker.jwt;
 
 import javax.enterprise.context.Dependent;
 import javax.ws.rs.NameBinding;

@@ -1,6 +1,7 @@
-package fr.wildcodeschool.githubtracker.controller.jwt;
+package fr.wildcodeschool.githubtracker.jwt;
 
 import javax.crypto.spec.SecretKeySpec;
+import javax.enterprise.context.Dependent;
 import java.security.Key;
 
 /**
@@ -8,7 +9,7 @@ import java.security.Key;
  * http://www.antoniogoncalves.org
  * --
  */
-
+@Dependent
 public class SimpleKeyGenerator implements KeyGenerator {
 
     // ======================================
@@ -18,7 +19,6 @@ public class SimpleKeyGenerator implements KeyGenerator {
     @Override
     public Key generateKey() {
         String keyString = "simplekey";
-        Key key = new SecretKeySpec(keyString.getBytes(), 0, keyString.getBytes().length, "DES");
-        return key;
+        return new SecretKeySpec(keyString.getBytes(), 0, keyString.getBytes().length, "DES");
     }
 }

@@ -1,7 +1,7 @@
-package fr.wildcodeschool.githubtracker.dao;
+package fr.wildcodeschool.githubtracker.controller.Rest;
 
 
-import fr.wildcodeschool.githubtracker.controller.jwt.JWTTokenNeeded;
+import fr.wildcodeschool.githubtracker.jwt.JWTTokenNeeded;
 import fr.wildcodeschool.githubtracker.model.Githuber;
 import fr.wildcodeschool.githubtracker.service.GithubersService;
 

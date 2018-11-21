@@ -1,4 +1,4 @@
-package fr.wildcodeschool.githubtracker.controller;
+package fr.wildcodeschool.githubtracker.controller.Servlet;
 
 import fr.wildcodeschool.githubtracker.service.GithubersService;
 
@@ -10,24 +10,27 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "TrackerServlet", urlPatterns = {"/track"})
-public class TrackerServlet extends HttpServlet {
+@WebServlet(name = "UntrackServlet", urlPatterns = {"/untrack"})
+public class UntrackServlet extends HttpServlet {
 
     @Inject
-    GithubersService ghs;
+    GithubersService ghu;
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
-        String login = request.getParameter("login");
+        String loginUntrack = request.getParameter("login");
 
-        ghs.trackGithuber(login);
+        ghu.untrackGithuber(loginUntrack);
 
         response.sendRedirect(request.getContextPath() + "/githubers");
-
     }
+
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        request.getRequestDispatcher("/WEB-INF/track.jsp").forward(request, response);
-
+        request.getRequestDispatcher("/WEB-INF/untrack.jsp").forward(request, response);
     }
+
 }
+
+
+

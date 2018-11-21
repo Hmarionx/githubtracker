@@ -1,4 +1,4 @@
-package fr.wildcodeschool.githubtracker.controller;
+package fr.wildcodeschool.githubtracker.controller.Servlet;
 
 import fr.wildcodeschool.githubtracker.model.Githuber;
 import fr.wildcodeschool.githubtracker.service.GithubersService;

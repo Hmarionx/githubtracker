@@ -1,4 +1,4 @@
-package fr.wildcodeschool.githubtracker.dao;
+package fr.wildcodeschool.githubtracker.controller.Rest;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
