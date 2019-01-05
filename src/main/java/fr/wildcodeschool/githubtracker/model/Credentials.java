@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 
-@Table(name = "Users")
+@Table(name = "users")
 @NamedQueries({
         @NamedQuery(name = Credentials.FIND_BY_LOGIN_PASSWORD, query = "SELECT c FROM Credentials c WHERE c.login = :login AND c.password = :password")
 })
